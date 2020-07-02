@@ -14,8 +14,8 @@ My solution for <a href="https://www.udacity.com/course/robotics-software-engine
 <tr>
 <th>
   <p>
-  <a href="./img/anymal.png">
-  <img src="./img/anymal.png" alt="anybotics_anymal" width="250" height="150"></a>
+  <a href="./img/anymal.PNG">
+  <img src="./img/anymal.PNG" alt="anybotics_anymal" width="250" height="150"></a>
   <br /> Introduction to Robotics
   <br />🤖 [ <a href="#">NOTES</a> ]
   </p>
