@@ -17,19 +17,23 @@ My solution for <a href="https://www.udacity.com/course/robotics-software-engine
   <a href="./img/anymal.PNG">
   <img src="./img/anymal.PNG" alt="anybotics_anymal" width="250" height="150"></a>
   <br /> Introduction to Robotics
-  <br />🤖 [ <a href="#">NOTES</a> ]
+  <br /> [ <a href="#">NOTES</a> ]
   </p>
 </th>
 <th>
   <p>
   <a href="./img/gazebo.jpg">
   <img src="./img/gazebo.jpg" alt="gazebo" width="250" height="150"></a>
+  <br /> Gazebo World
+  <br /> [ <a href="#">NOTES</a> ]
   </p>
 </th>
 <th>
   <p>
   <a href="./img/ros.png">
   <img src="./img/ros.png" alt="ros" width="250" height="150"></a>
+  <br /> ROS Essentials
+  <br /> [ <a href="#">NOTES</a> ]
   </p>
 </th>
 </tr>
