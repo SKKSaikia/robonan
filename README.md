@@ -38,9 +38,30 @@ My solution for <a href="https://www.udacity.com/course/robotics-software-engine
 </th>
 </tr>
 <tr>
-<th></th>
-<th></th>
-<th></th>
+<th>
+<p>
+<a href="./img/localization.gif">
+<img src="./img/localization.gif" alt="localization" width="250" height="150"></a>
+<br /> Path Planning and Navigation
+<br /> [ <a href="#">NOTES</a> ]
+</p>
+</th>
+<th>
+  <p>
+  <a href="./img/slam.gif">
+  <img src="./img/slam.gif" alt="SLAM" width="250" height="150"></a>
+  <br /> Mapping and SLAM
+  <br /> [ <a href="#">NOTES</a> ]
+  </p>
+</th>
+<th>
+  <p>
+  <a href="./img/pathplanning.gif">
+  <img src="./img/pathplanning.gif" alt="path_planning" width="250" height="150"></a>
+  <br /> Path Planning and Navigation
+  <br /> [ <a href="#">NOTES</a> ]
+  </p>
+</th>
 </tr>
 </table>
 
