@@ -157,4 +157,12 @@ Other folders may include
 - worlds (XML like files that are used for Gazebo simulation environments)
 
 List of <a href="https://www.ros.org/browse/list.php">ros kinetic packages</a>.
+
+#### Write ROS nodes
+
+Write nodes in C++. The first node that you will write is called ```simple_mover```. The ```simple_mover``` node does nothing more than publish joint angle commands to ```simple_arm```. We will write another node ```arm_mover```. The ```arm_mover``` node provides a service called ```safe_move```, which allows the arm to be moved to any position within its workspace that has been deemed safe. The safe zone is bounded by minimum and maximum joint angles, and is configurable via the ROS parameter server.
+
+The last node we’ll write in this lesson is the ```look_away``` node.
+
+
 </p>
