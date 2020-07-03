@@ -162,9 +162,41 @@ List of <a href="https://www.ros.org/browse/list.php">ros kinetic packages</a>.
 
 #### Write ROS nodes
 
-Write nodes in C++. The first node that you will write is called ```simple_mover```. The ```simple_mover``` node does nothing more than publish joint angle commands to ```simple_arm```. We will write another node ```arm_mover```. The ```arm_mover``` node provides a service called ```safe_move```, which allows the arm to be moved to any position within its workspace that has been deemed safe. The safe zone is bounded by minimum and maximum joint angles, and is configurable via the ROS parameter server.
+Write nodes in C++. The first node that we will write is called ```1.``` ```simple_mover```. The ```simple_mover``` node does nothing more than publish joint angle commands to ```simple_arm```. We will write another node ```2.``` ```arm_mover```. The ```arm_mover``` node provides a service called ```safe_move```, which allows the arm to be moved to any position within its workspace that has been deemed safe. The safe zone is bounded by minimum and maximum joint angles, and is configurable via the ROS parameter server.
 
-The last node we’ll write in this lesson is the ```look_away``` node. This node subscribes to the arm joint positions and a topic where camera data is being published. When the camera detects an image with uniform color, meaning that it’s looking at the sky, and the arm is not moving, the node will call the ```safe_move``` service via a client to move the arm to a new position.
+The last node we’ll write is the ```3.``` ```look_away``` node. This node subscribes to the arm joint positions and a topic where camera data is being published. When the camera detects an image with uniform color, meaning that it’s looking at the sky, and the arm is not moving, the node will call the ```safe_move``` service via a client to move the arm to a new position.
+
+Publishers allow a node to send messages to a topic, so that data from the node can be used in other parts of ROS. In C++, ROS publishers typically have the following definition format, although other parameters and arguments are possible:
+
+```
+ros::Publisher pub1 = n.advertise<message_type>("/topic_name", queue_size);
+```
+
+The ```pub1``` object is a publisher object instantiated from the ros::Publisher class. This object allows us to publish messages by calling the publish() function. To communicate with ROS master in C++, we need a ```NodeHandle```. The node handle ```n``` will fully initialize the node.
+
+The ```advertise()``` function is used to communicate with ROS and inform that we want to publish a message on a given topic name. The ```"/topic_name"``` indicates which topic the publisher will be publishing to.
+
+The ```message_type``` is the type of message being published on ```"/topic_name"```. For example, the string message data type in ROS is ```std_msgs::String```.
+
+The ```queue_size``` indicates the number of messages that can be stored in a queue. A publisher can store messages in a queue until the messages can be sent. If the number of messages stored exceeds the size of the queue, the oldest messages are dropped.
+
+Once the publisher object ```pub1``` has been created, as above, a ```message``` with the specified data type can be published as follows:
+```
+pub1.publish(msg);
+```
+<b>🦾1. SIMPLE MOVER</b>
+
+As its name implies, this node only has one responsibility, and that is to command joint movements for ```simple_arm```.<br />
+
+<b>GOAL:</b> The goal of the ```simple_mover``` node is to command each joint in the simple arm and make it swing between -pi/2 to pi/2 over time.<br />
+
+<img src="./img/simple_mover.gif" width=50%>
+
+<b>🦾2. ARM MOVER</b>
+
+<b>🦾3. LOOK AWAY</b>
+
+
 
 
 </p>
