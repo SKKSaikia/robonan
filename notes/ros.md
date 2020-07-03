@@ -34,37 +34,71 @@ The tradition of turtles in robotics is alive and well today. In fact, each rece
 To check if <b>ros</b> environment has been set up correctly, we source the setup script provided by <b>ros</b> :
 
 ```
-$source /opt/ros/kinetic/setup.bash
+$ source /opt/ros/kinetic/setup.bash
 
 ```
-or type ```$ros``` followed by double tapping the tab key gives us an extensive list of all the commands beginning with their character 'ros'. Setting up the ROS environment every time you open a new terminal window can be painful and tedious. To avoid the tedium, we can simply add the command to source the workspace to our ```~/.bashrc``` file.
+or type ```$ ros``` followed by double tapping the tab key gives us an extensive list of all the commands beginning with their character 'ros'. Setting up the ROS environment every time you open a new terminal window can be painful and tedious. To avoid the tedium, we can simply add the command to source the workspace to our ```~/.bashrc``` file.
 
 ```
-$gedit ~/.bashrc
+$ gedit ~/.bashrc
 ```
 To start with Turtle Sim nodes, we first need to start the <b>ros</b> master:
 ```
-$roscore
+$ roscore
 ```
 In a new terminal: ( $rosrun package_name name_of_node_executable)
 ```
-$rosrun turtlesim turtlesim_node
+$ rosrun turtlesim turtlesim_node
 ```
 To command the turtle to move, in a new window:
 ```
-$rosrun turtlesim turtle_teleop_key
+$ rosrun turtlesim turtle_teleop_key
 ```
 
 ##### Turtlesim Commands:
 
 ###### Turtle Sim communication Commands
-- Listing all active nodes ```$rosnode list``` 'rosout' is a node automatically launched by ros for aggregating, filtering and recording log messages to a text file.
-- Listing all topics ```$rostopic list```
-- Getting information about topics ```$rostopic info topic_name``` e.g ```$rostopic info /turtle1/cmd_vel ```and we get the type of the message as ```geometry_msgs/Twist```
-- Showing message information ```$rosmsg info geometry_msgs/Twist``` and if we need more info ```$rosed geometry_msgs Twist.msg```
-- Echoing messages in real-time ```$rostopic echo``` e.g ```$rostopic echo /turtle1/cmd_vel```
+- Listing all active nodes ```$ rosnode list``` 'rosout' is a node automatically launched by ros for aggregating, filtering and recording log messages to a text file.
+- Listing all topics ```$ rostopic list```
+- Getting information about topics ```$ rostopic info topic_name``` e.g ```$ rostopic info /turtle1/cmd_vel ```and we get the type of the message as ```geometry_msgs/Twist```
+- Showing message information ```$ rosmsg info geometry_msgs/Twist``` and if we need more info ```$ rosed geometry_msgs Twist.msg```
+- Echoing messages in real-time ```$ rostopic echo``` e.g ```$ rostopic echo /turtle1/cmd_vel```
 
+#### Packages & Catkin Workspaces
 
+A catkin workspace is a top-level directory where you build, install, and modify catkin packages. Each package also contains a file with build instructions - the CMakeLists.txt file - and a package.xml file with information about the package. Packages enable ROS users to organize useful functionality in a convenient and reusable format.
+We need to create the top level catkin workspace directory and a sub-directory named ```src```:
+
+```
+$ mkdir -p /home/workspace/catkin_ws/src
+```
+then ``` $ cd /home/workspace/catkin_ws/src ```
+
+Now we can initialize the catkin workspace which will create a CMakeLists.txt file:
+
+``` $ catkin_init_workspace ``` and this creates a symbolic link to ```/opt/ros/kinetic/share/catkin/cmake/toplevel.cmake```
+
+Next return to top level directory ```$ cd /home/workspace/catkin_ws``` and build the workspace:
+
+```$ catkin_make```   More on catkin - <a href="http://wiki.ros.org/catkin/conceptual_overview">ROSWiki :: catkin</a>
+
+<img src="./img/ls.png"><br />
+
+Two new directories are formed ```build``` and ```devel```. The aptly named ```build``` directory is the build space for C++ packages. The ```devel``` directory does contain something of interest, a file named ```setup.bash```. This ```setup.bash``` script must be sourced before using the catkin workspace with ```source devel/setup.bash```.
+
+###### + Adding a package
+Navigate to the ```src``` directory of catkin workspace and then clone an existing package:
+
+```
+$ cd /home/workspace/catkin_ws/src/
+$ git clone -b first_interaction https://github.com/udacity/RoboND-simple_arm/ simple_arm
+```
+To build the new package:
+
+```
+$ cd /home/workspace/catkin_ws/
+$ catkin_make
+```
 
 
 
