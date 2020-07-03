@@ -192,8 +192,15 @@ As its name implies, this node only has one responsibility, and that is to comma
 
 <img src="./img/simple_mover.gif" width=35%><a> </a><img src="./img/simple_mover_topic.PNG" width=60%>
 
-To do so, it must publish joint angle command messages to the above topics.
+To do so, it must publish joint angle command messages to the above topics. In order to create a node in c++ :
+```
+$ cd /home/workspace/catkin_ws/src/simple_arm/
+$ mkdir src
 
+$ cd /home/workspace/catkin_ws/src/simple_arm/src/
+$ touch simple_mover.cpp
+```
+The whole code - <a href="./simple_mover.cpp">simple_mover.cpp</a>
 
 <b>🦾2. ARM MOVER</b>
 
