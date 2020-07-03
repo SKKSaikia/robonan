@@ -78,19 +78,19 @@ My solution for <a href="https://www.udacity.com/course/robotics-software-engine
 <th>
   <p>
   <br /> Build My World
-  <br /> [ <a href="#">NOTES</a> ]
+  <br /> [ <a href="./project/p1_build_my_world">NOTES</a> ]
   </p>
 </th>
 <th>
   <p>
   <br /> Go Chase It!
-  <br /> [ <a href="#">NOTES</a> ]
+  <br /> [ <a href="./project/p2_go_chase_it!">NOTES</a> ]
   </p>
 </th>
 <th>
   <p>
   <br /> Where Am I
-  <br /> [ <a href="#">NOTES</a> ]
+  <br /> [ <a href="./project/p3_where_am_I">NOTES</a> ]
   </p>
 </th>
 </tr>
