@@ -188,9 +188,12 @@ pub1.publish(msg);
 
 As its name implies, this node only has one responsibility, and that is to command joint movements for ```simple_arm```.<br />
 
-<b>GOAL:</b> The goal of the ```simple_mover``` node is to command each joint in the simple arm and make it swing between -pi/2 to pi/2 over time.<br />
+<b>GOAL:</b> The goal of the ```simple_mover``` node is to command each joint in the simple arm and make it swing between -π/2 to π/2 over time.<br />
 
-<img src="./img/simple_mover.gif" width=50%>
+<img src="./img/simple_mover.gif" width=35%><a> </a><img src="./img/simple_mover_topic.PNG" width=60%>
+
+To do so, it must publish joint angle command messages to the above topics.
+
 
 <b>🦾2. ARM MOVER</b>
 
