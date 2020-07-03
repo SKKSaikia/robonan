@@ -12,7 +12,7 @@ Almost every robot in the world uses:
 - Motors & Controllers: <b>ACTUATION</b>
 
 ROS breaks down these high level tasks into small unix processes called nodes.
-<center><img src="./img/ros_nodes.PNG"></a></center>
+<center><img src="./img/ros_nodes.PNG" height="120" width="200"></a></center>
 </p>
 <p align="justify">ROS master is the manager of all the nodes. ROS master maintains a registry of all the active nodes in a system. Each node can use this registry to discover other nodes and form lines of communication. ROS master also holds parameter server which holds parameters and configuration values that are shared among the running nodes. Nodes share information with each other via topics (/topic_name). In order to send a message to a node, the node must <b>publish</b> to that topic. To receive a message on a topic, a node must <b>subscribe</b> to that topic. Each node may simultaneously publish or subscribe. This network of nodes connected by topics is called a pub-sub architecture.
 
@@ -58,7 +58,7 @@ $rosrun turtlesim turtle_teleop_key
 ###### Turtle Sim communication Commands
 - Listing all active nodes ```$rosnode list``` 'rosout' is a node automatically launched by ros for aggregating, filtering and recording log messages to a text file.
 - Listing all topics ```$rostopic list```
-- Getting information about topics
+- Getting information about topics ```$rostopic info topic_name```
 - Showing message information
 - Echoing messages in real-time
 
