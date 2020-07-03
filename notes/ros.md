@@ -13,7 +13,7 @@ Almost every robot in the world uses:
 
 ROS breaks down these high level tasks into small unix processes called nodes.
 
-<img src="./img/ros_nodes.PNG" width=43%><a> </a><img src="./img/pub_sub.PNG" width=35%>
+<img src="./img/ros_nodes.PNG" width=43%><a> </a><img src="./img/pub_sub.PNG" width=36%>
 
 </p>
 <p align="justify">ROS master is the manager of all the nodes. ROS master maintains a registry of all the active nodes in a system. Each node can use this registry to discover other nodes and form lines of communication. ROS master also holds parameter server which holds parameters and configuration values that are shared among the running nodes. Nodes share information with each other via topics (/topic_name). In order to send a message to a node, the node must <b>publish</b> to that topic. To receive a message on a topic, a node must <b>subscribe</b> to that topic. Each node may simultaneously publish or subscribe. This network of nodes connected by topics is called a pub-sub architecture.
