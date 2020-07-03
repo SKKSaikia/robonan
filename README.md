@@ -42,7 +42,7 @@ My solution for <a href="https://www.udacity.com/course/robotics-software-engine
 <p>
 <a href="./img/localization.gif">
 <img src="./img/localization.gif" alt="localization" width="250" height="150"></a>
-<br /> Path Planning and Navigation
+<br /> Localization
 <br /> [ <a href="./notes/localization.md">NOTES</a> ]
 </p>
 </th>
