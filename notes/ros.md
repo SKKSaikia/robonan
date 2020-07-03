@@ -29,6 +29,41 @@ These networks of nodes are known as <b>Compute Graphs</b>! and are important. R
 
 The tradition of turtles in robotics is alive and well today. In fact, each recent version of ROS has been named after some sort of turtle. In addition to this turtle-centric naming convention, the Open-Source Robotics Foundation also adds a new turtle to *turtle_sim* with each release.
 
+To check if <b>ros</b> environment has been set up correctly, we source the setup script provided by <b>ros</b> :
+
+```
+$source /opt/ros/kinetic/setup.bash
+
+```
+or type ```$ros``` followed by double tapping the tab key gives us an extensive list of all the commands beginning with their character 'ros'. Setting up the ROS environment every time you open a new terminal window can be painful and tedious. To avoid the tedium, we can simply add the command to source the workspace to our ```~/.bashrc``` file.
+
+```
+$gedit ~/.bashrc
+```
+To start with Turtle Sim nodes, we first need to start the <b>ros</b> master:
+```
+$roscore
+```
+In a new terminal: ( $rosrun package_name name_of_node_executable)
+```
+$rosrun turtlesim turtlesim_node
+```
+To command the turtle to move, in a new window:
+```
+$rosrun turtlesim turtle_teleop_key
+```
+
+##### Turtlesim Commands:
+
+###### Turtle Sim communication Commands
+- Listing all active nodes ```$rosnode list``` 'rosout' is a node automatically launched by ros for aggregating, filtering and recording log messages to a text file.
+- Listing all topics ```$rostopic list```
+- Getting information about topics
+- Showing message information
+- Echoing messages in real-time
+
+
+
 
 
 </p>
