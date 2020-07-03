@@ -46,7 +46,7 @@ To start with Turtle Sim nodes, we first need to start the <b>ros</b> master:
 ```
 $ roscore
 ```
-In a new terminal: ( $rosrun package_name name_of_node_executable)
+In a new terminal: ( ```$ rosrun package_name name_of_node_executable```)
 ```
 $ rosrun turtlesim turtlesim_node
 ```
@@ -99,7 +99,62 @@ To build the new package:
 $ cd /home/workspace/catkin_ws/
 $ catkin_make
 ```
+In case of missing package error while building the catkin workspace - <b>"Could not find a package configuration file provided by controller_manager"</b>
 
+```
+$ sudo apt-get install ros-kinetic-controller-manager
+```
+##### ROSLAUNCH
 
+```roslaunch``` allows us to do the following:
+- Launch the ROS Master and multiple nodes with one simple command
+- Set default parameters on the parameter server
+- Automatically re-spawn processes that have died
 
+To use roslaunch, we must first make sure that your workspace has been built and sourced
+```
+$ cd /home/workspace/catkin_ws/
+$ catkin_make
+```
+and ```$ source devel/setup.bash```. Now we can make use of ```roslaunch```
+
+```
+$ roslaunch simple_arm robot_spawn.launch
+```
+
+##### ROS Package Dependencies (Rosdep)
+
+ROS packages have two types of dependencies: <b>build dependencies</b> and <b>run dependencies</b>. The ```rosdep``` tool will check for a package's missing dependencies, download them, and install them.
+
+To check for missing dependencies in a ROS package:
+```
+$ rosdep check <package name>
+```
+to install the dependencies ``` $ rosdep install -i <package name> ```
+
+###### Creating own catkin-package
+
+To create personal packages, go to ```$ cd /home/workspace/catkin_ws/src``` The syntax for creating a catkin package is:
+
+```
+$ catkin_create_pkg <your_package_name> [dependency1 dependency2 …]
+```
+Navigating inside our newly created package reveals that it contains just two files: ```CMakeLists.txt``` and ```package.xml```
+
+ROS packages have a conventional directory structure. Let’s take a look at a more typical package.
+
+- scripts (python executables)
+- src (C++ source files)
+- msg (for custom message definitions)
+- srv (for service message definitions)
+- include -> headers/libraries that are needed as dependencies
+- config -> configuration files
+- launch -> provide a more automated way of starting nodes
+
+Other folders may include
+- urdf (Universal Robot Description Files)
+- meshes (CAD files in .dae (Collada) or .stl (STereoLithography) format)
+- worlds (XML like files that are used for Gazebo simulation environments)
+
+List of <a href="https://www.ros.org/browse/list.php">ros kinetic packages</a>.
 </p>
