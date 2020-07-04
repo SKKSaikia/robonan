@@ -1,4 +1,4 @@
-## 👾 ROS Essentials
+# ROS Essentials
 
 <p align="justify">
 Robot Operating System or ROS provides a means of communication with hardware. It also provides a way for different processes to communicate with one another via message passing. ROS features a slick build and package management system called <b>catkin</b>.
