@@ -277,7 +277,21 @@ The `service_name` is the name given to the service. Other nodes will use this n
 
 The `handler` is the name of the function or method that handles the incoming service message. This function is called each time the service is called, and the message from the service call is passed to the `handler` function as an argument. The `handler` should return an appropriate service response message.
 
+##### Using Services
+Services can be called directly from the command line, with:
+`$ rosservice call service_name “request”` and After calling the service, we will wait for an answer.
 
+Another approach is to use a ROS service programmatically, from within a node. We will define a ROS client, which provides the interface for sending messages to the service:
+
+```
+ros::ServiceClient client = n.serviceClient<package_name::service_file_name>("service_name");
+```
+
+One way the ROS Client can then be used is to send requests is as follows:
+
+`client.call(srv);    // request a service `
+
+<img src="./img/service.png">
 
 <b>🦾3. LOOK AWAY</b>
 
