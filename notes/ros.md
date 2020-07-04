@@ -202,6 +202,67 @@ $ touch simple_mover.cpp
 ```
 CODE - <a href="./simple_mover.cpp">simple_mover.cpp</a> : <a href="https://youtu.be/mj7lwGqouEA">EXPLANATION</a> : <a href="./simple_mover.md">written_explanation</a>
 
+Before we can run the `simple_mover` node, we have to compile the C++ script. In order for catkin to generate the C++ libraries, we must first modify `simple_arm`’s `CMakeLists.txt`.
+
+`CMake` is the build tool underlying catkin, and `CMakeLists.txt` is a CMake script used by catkin.
+
+```
+$ cd /home/workspace/catkin_ws/src/simple_arm/
+$ gedit CMakeLists.txt
+```
+In CMakeLists.txt The find_package() macro should look as follows:
+```
+find_package(catkin REQUIRED COMPONENTS
+        std_msgs
+        message_generation
+        controller_manager
+)
+```
+As the names might imply, the `std_msgs` package contains all of the basic message types, and `message_generation` is required to generate message libraries for all the supported languages (cpp, lisp, python, javascript). The `contoller_manager` is another package responsible for controlling the arm.
+
+Now, add the following block of code at the bottom of the file:
+```
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+add_executable(simple_mover src/simple_mover.cpp)
+target_link_libraries(simple_mover ${catkin_LIBRARIES})
+add_dependencies(simple_mover simple_arm_generate_messages_cpp)
+```
+These instructions ask the compiler to include the directories, executable file, link libraries, and dependencies for our C++ code:
+
+`add_executable(node_name sourcecode_directory)`
+
+Creates the executable simple_mover file.
+
+`target_link_libraries(node_name ${catkin_LIBRARIES})`
+
+This will add all the linked libraries to the compiler.
+
+`add_dependencies(node_name package_name_generate_messages_cpp)`
+
+Generates message headers for this package before you can use them.
+
+Now that we have included specific instructions for our compiler, let’s build the package:
+
+```
+cd /home/workspace/catkin_ws/
+$ catkin_make
+```
+<b> Running simple_mover:</b>
+```
+$ cd /home/workspace/catkin_ws/
+$ source devel/setup.bash
+$ roslaunch simple_arm robot_spawn.launch
+```
+
+Once the ROS Master, Gazebo, and all of our relevant nodes are up and running, we can finally launch `simple_mover`.
+```
+$ cd /home/workspace/catkin_ws/
+$ source devel/setup.bash
+$ rosrun simple_arm simple_mover
+```
+<a href="https://github.com/udacity/RoboND-simple_arm/tree/simple_mover">@github</a>
+
 
 <b>🦾2. ARM MOVER</b>
 
