@@ -263,8 +263,21 @@ $ rosrun simple_arm simple_mover
 ```
 <a href="https://github.com/udacity/RoboND-simple_arm/tree/simple_mover">@github</a>
 
-
 <b>🦾2. ARM MOVER</b>
+##### Defining services
+<p align="justify">A ROS service allows request/response communication to exist between nodes. Within the node providing the service, request messages are handled by functions or methods. Once the requests have been handled successfully, the node providing the service sends a message back to the requester node. In C++, a ROS service server can be created using the following definition format:</p>
+
+```ros::ServiceServer service = n.advertiseService(`service_name`, handler);```
+
+In ROS, the service class name `ServiceServer` comes from the file name where the service definition exists. Each service provides a definition in a `.srv` file; this is a text file that provides the proper message type for both requests and responses.
+
+The `advertiseService()` allows you to communicate with ROS through the node handle n and inform ROS that you want to create a service.
+
+The `service_name` is the name given to the service. Other nodes will use this name to specify the service to which they are sending requests.
+
+The `handler` is the name of the function or method that handles the incoming service message. This function is called each time the service is called, and the message from the service call is passed to the `handler` function as an argument. The `handler` should return an appropriate service response message.
+
+
 
 <b>🦾3. LOOK AWAY</b>
 
