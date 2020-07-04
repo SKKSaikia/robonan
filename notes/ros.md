@@ -200,7 +200,7 @@ $ mkdir src
 $ cd /home/workspace/catkin_ws/src/simple_arm/src/
 $ touch simple_mover.cpp
 ```
-The whole code - <a href="./simple_mover.cpp">simple_mover.cpp</a>
+1. <a href="./simple_mover.cpp">simple_mover.cpp</a>
 
 <b>🦾2. ARM MOVER</b>
 
