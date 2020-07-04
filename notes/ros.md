@@ -160,7 +160,7 @@ Other folders may include
 
 List of <a href="https://www.ros.org/browse/list.php">ros kinetic packages</a>.
 
-#### Write ROS nodes
+## Write ROS nodes
 
 Write nodes in C++. The first node that we will write is called ```1.``` ```simple_mover```. The ```simple_mover``` node does nothing more than publish joint angle commands to ```simple_arm```. We will write another node ```2.``` ```arm_mover```. The ```arm_mover``` node provides a service called ```safe_move```, which allows the arm to be moved to any position within its workspace that has been deemed safe. The safe zone is bounded by minimum and maximum joint angles, and is configurable via the ROS parameter server.
 
@@ -184,7 +184,7 @@ Once the publisher object ```pub1``` has been created, as above, a ```message```
 ```
 pub1.publish(msg);
 ```
-<b>🦾1. SIMPLE MOVER</b>
+### 🦾1. SIMPLE MOVER
 
 As its name implies, this node only has one responsibility, and that is to command joint movements for ```simple_arm```.<br />
 
@@ -263,7 +263,7 @@ $ rosrun simple_arm simple_mover
 ```
 <a href="https://github.com/udacity/RoboND-simple_arm/tree/simple_mover">@github</a>
 
-<b>🦾2. ARM MOVER</b>
+### 🦾2. ARM MOVER
 ##### Defining services
 <p align="justify">A ROS service allows request/response communication to exist between nodes. Within the node providing the service, request messages are handled by functions or methods. Once the requests have been handled successfully, the node providing the service sends a message back to the requester node. In C++, a ROS service server can be created using the following definition format:</p>
 
@@ -293,7 +293,7 @@ One way the ROS Client can then be used is to send requests is as follows:
 
 <img src="./img/service.png">
 
-<b>🦾3. LOOK AWAY</b>
+### 🦾3. LOOK AWAY
 
 
 
